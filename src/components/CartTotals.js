@@ -10,7 +10,7 @@ const CartTotals = () => {
   const { myUser, loginWithRedirect } = useUserContext();
   return <Wrapper>
     <div className="container-total">
-      <article>
+      <article className="total-article">
         <h5>subtotal : <span>{formatPrice(total_amount)}</span></h5>
         <p>shipping fee: <span>{formatPrice(shipping_fee)}</span></p>
         <hr />
@@ -50,10 +50,16 @@ const Wrapper = styled.section`
   .container-total{
     max-width: 100%;
   }
+  .total-article{
+  padding: 1rem;
+  }
   @media (min-width: 776px) {
     justify-content: flex-end;
     .container-total{
       max-width: unset;
+    }
+    .total-article{
+    padding: 1.5rem 3rem;
     }
   }
   .btn {
