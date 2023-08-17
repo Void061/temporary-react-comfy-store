@@ -26,6 +26,13 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
             color: <span style={{ background: color }}></span>
           </p>
           <h5 className="price-small">{formatPrice(price)}</h5>
+          <button
+            onClick={() => removeItem(id)}
+            type="button"
+            className="remove-btn remove-mobile"
+          >
+            <FaTrash />
+          </button>
         </div>
       </div>
       <h5 className="price">{formatPrice(price)}</h5>
@@ -34,7 +41,7 @@ const CartItem = ({ id, image, name, color, price, amount }) => {
       <button
         onClick={() => removeItem(id)}
         type="button"
-        className="remove-btn"
+        className="remove-btn remove-desktop"
       >
         <FaTrash />
       </button>
@@ -123,6 +130,13 @@ const Wrapper = styled.article`
     font-size: 0.75rem;
     cursor: pointer;
   }
+  .remove-mobile{
+    margin-top: 10px;
+    display: block;
+  }
+  .remove-desktop{
+    display: none;
+  }
   @media (min-width: 776px) {
     .subtotal {
       display: block;
@@ -130,6 +144,12 @@ const Wrapper = styled.article`
       color: var(--clr-grey-5);
       font-weight: 400;
       font-size: 1rem;
+    }
+    .remove-mobile{
+      display: none;
+    }
+    .remove-desktop{
+      display: block;
     }
     .price-small {
       display: none;

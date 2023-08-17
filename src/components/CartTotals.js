@@ -9,7 +9,7 @@ const CartTotals = () => {
   const { total_amount, shipping_fee } = useCartContext();
   const { myUser, loginWithRedirect } = useUserContext();
   return <Wrapper>
-    <div>
+    <div className="container-total">
       <article>
         <h5>subtotal : <span>{formatPrice(total_amount)}</span></h5>
         <p>shipping fee: <span>{formatPrice(shipping_fee)}</span></p>
@@ -47,8 +47,14 @@ const Wrapper = styled.section`
   h4 {
     margin-top: 2rem;
   }
+  .container-total{
+    max-width: 100%;
+  }
   @media (min-width: 776px) {
     justify-content: flex-end;
+    .container-total{
+      max-width: unset;
+    }
   }
   .btn {
     width: 100%;
